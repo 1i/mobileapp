@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    
+  </head>
+  <body>
+      <div class='container'>
+          <!-- event listing container area -->
+          <div class='row eventListingContainer'>
+              <div class='col-lg-4 col-md-offset-4'>
+      <div class="list-group" id="eventListingContainer"></div>
+              </div>
+      </div><!-- row -->
+      
+      
+       <!-- event listing container area -->
+          <div class='row eventViewContainer' style="display: none">
+              <div class='col-lg-6 col-md-offset-2'>
+      <div class="list-group" id="eventViewContainer"></div>
+       <button id="btnViewAllEvents" type="button" class="btn btn-primary btnViewAllEvents">View All Events</button>
+              </div>
+      </div><!-- row -->
+      
+      
+      </div><!-- end container -->
+
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   
+    <script src="dis/js/bootstrap.min.js"></script>
+    
+        <script src="http://www.jsviews.com/download/jsrender.js"></script>
+        
+        <script src="js/mobileapp.js"></script>
+        
+        
+        <script id="eventListingTpl" type="text/x-jsrender">
+  <a href="#" class="list-group-item">
+    <h4 class="list-group-item-heading"> {{:title}} </h4>
+    <p class="list-group-item-text"> {{:shortDescription}} </p>
+    <p class="list-group-item-text"> {{:startDate}} </p>
+    <button id="{{:event_id}}" type="button" class="btn btn-primary btnViewEvent">View Event</button>
+  </a>
+</script>
+
+<script id="eventViewTpl" type="text/x-jsrender">
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">{{:title}} </div>
+  <div class="panel-body">
+    <p>{{:shortDescription}}</p>
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">{{:startDate}}</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item"><button id="btnRegisterForEvent" data-event-id="{{:event_id}}" type="button" class="btn btn-primary btnRegister Event">Register for Event</button></li>
+  </ul>
+</div>
+   
+</script>
+
+
+<script id="eventRegisterTpl" type="text/x-jsrender">
+    
+     <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">{{:title}} </div>
+  <div class="panel-body">
+    <p>{{:shortDescription}}</p>
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">Form Data</li>
+    <li class="list-group-item">Register</li>
+    <li class="list-group-item"></li>
+    <li class="list-group-item"><input type="text" class="form-control" /></li>
+    <li class="list-group-item"><button id="{{:event_id}}" type="button" class="btn btn-primary btnRegister Event">Submit</button></li>
+  </ul>
+</div>
+    
+    
+</script>
+
+
+  </body>
+</html>
